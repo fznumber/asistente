@@ -10,10 +10,10 @@ from phi.utils.log import logger
 from assistant import get_groq_assistant  # type: ignore
 
 st.set_page_config(
-    page_title="Groq RAG",
+    page_title="Pancho",
     page_icon=":orange_heart:",
 )
-st.title("Agente conversacional")
+st.title("PANCHO")
 
 
 def restart_assistant():
@@ -75,7 +75,7 @@ def main() -> None:
         st.session_state["messages"] = assistant_chat_history
     else:
         logger.debug("No chat history found")
-        st.session_state["messages"] = [{"role": "assistant", "content": "Upload a doc and ask me questions..."}]
+        st.session_state["messages"] = [{"role": "assistant", "content": "En que puedo ayudarte..."}]
 
     # Prompt for user input
     if prompt := st.chat_input():
