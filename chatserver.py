@@ -18,15 +18,15 @@ def bot():
     embeddings_model = "nomic-embed-text"
     # mujeres = "./knowledge_base/mujeres.pdf"
     # varones = "./knowledge_base/varones.pdf"
-    ventas = "./knowledge_base/ventas.pdf"
-    reader = PDFReader()
-    rag_documents: List[Document] = reader.read(ventas) 
+    # # ventas = "./knowledge_base/ventas.pdf"
+    # reader = PDFReader()
+    # rag_documents: List[Document] = reader.read(ventas) 
     # rag_documents.extend(reader.read(varones))
     rag_assistant = get_groq_assistant(llm_model=llm_model, embeddings_model=embeddings_model)
-    if rag_documents:
-        rag_assistant.knowledge_base.load_documents(rag_documents, upsert=True)
-    else:
-        print("Could not read PDF")
+    # if rag_documents:
+    #     rag_assistant.knowledge_base.load_documents(rag_documents, upsert=True)
+    # else:
+    #     print("Could not read PDF")
     
     # ffrom = request.values.get('From')
     user_msg = request.values.get('Body', '').lower()
